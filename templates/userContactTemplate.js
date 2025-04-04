@@ -51,13 +51,6 @@ export const userContactTemplate = (data) => `
         font-size: 16px;
       }
 
-      .hero-image {
-        width: 100%;
-        max-height: 320px;
-        object-fit: contain;
-        border-bottom: 1px solid #e5e7eb;
-      }
-
       .content-section {
         padding: 30px;
         background: #ffffff;
@@ -135,21 +128,6 @@ export const userContactTemplate = (data) => `
         font-size: 14px;
       }
 
-      .social-icons {
-        margin-top: 15px;
-      }
-
-      .social-icons a {
-        margin: 0 10px;
-        display: inline-block;
-      }
-
-      .social-icons img {
-        width: 28px;
-        height: 28px;
-        transition: transform 0.2s;
-      }
-
       /* Responsive Styles */
       @media (max-width: 600px) {
         .header-section {
@@ -187,13 +165,6 @@ export const userContactTemplate = (data) => `
         <h1>We've Received Your Inquiry!</h1>
         <p>Our team is already working on your request</p>
       </div>
-
-      <!-- Hero Image -->
-      <img
-        src="https://cdn.prod.website-files.com/619b7ac711243f15ea484033/660385aa1bc2d47d2ea7a72d_MQU8EbL8jQujzi-KJVQRG6gyAhkkE3L3U4Mjizmspi44OL_ZGpUKEMYI58cysgnUObMzQwlr0YvCnsMmrtv_2p9rjAvNmE1sk-Gf6YpJzf69tbdg5itrIPIut0swhfEmBCkDLzZO09HcdLbjvgEnAg.jpeg"
-        alt="Confirmation Animation"
-        class="hero-image"
-      />
 
       <!-- Content Section -->
       <div class="content-section">
@@ -246,15 +217,6 @@ export const userContactTemplate = (data) => `
           >
             Check Support Portal →
           </a>
-        </div>
-
-        <!-- Fun Element -->
-        <div style="text-align: center; margin: 30px 0">
-          <img
-            src="https://media.tenor.com/4tHn5BkQbQ0AAAAC/thank-you-meme.gif"
-            alt="Thank You Meme"
-            style="max-width: 240px; height: auto"
-          />
         </div>
       </div>
 

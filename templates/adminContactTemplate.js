@@ -81,12 +81,12 @@ export const adminContactTemplate = (data) => `
 <body>
     <div class="email-container">
         <div class="header">
-            <img src="https://next-step-kappa-murex.vercel.app/assets/darkLogo-removebg-preview-CegAW90k.png" 
+            <img src="https://next-step-kappa-murex.vercel.app/assets/darkLogo-removebg-preview-CegAW90k.png"
                  alt="Company Logo" class="logo">
             <h1>New Inquiry Received</h1>
             <p style="margin-top: 8px;">${data.subject}</p>
         </div>
-        
+
         <div class="content">
             <div class="details-grid">
                 <div class="detail-item">
@@ -102,19 +102,19 @@ export const adminContactTemplate = (data) => `
                     <span class="detail-value">${data.inquiryType}</span>
                 </div>
                 <div class="detail-item">
-                    <span class="detail-label">Inquiry Type</span>
+                    <span class="detail-label">Subject</span>
                     <span class="detail-value">${data.subject}</span>
                 </div>
             </div>
-            
+
             <div class="message-box">
                 <span class="detail-label">Message</span>
                 <div class="detail-value">${data.message}</div>
             </div>
         </div>
-        
+
         <div class="footer">
-            <p>&copy; 2024 NextStep - Your Future Starts Here. </p>
+            <p>&copy; 2024 NextStep - Your Future Starts Here.</p>
             <p>Nanded Maharashtra 431605</p>
         </div>
     </div>

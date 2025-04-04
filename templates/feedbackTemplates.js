@@ -76,7 +76,7 @@ export const feedbackAdminTemplate = (data) => `
     <div class="email-container">
         <!-- Header -->
         <div class="header">
-            <img src="https://next-step-kappa-murex.vercel.app/assets/darkLogo-removebg-preview-CegAW90k.png" 
+            <img src="https://next-step-kappa-murex.vercel.app/assets/darkLogo-removebg-preview-CegAW90k.png"
                  alt="Company Logo" class="logo">
             <h1>New Feedback Received</h1>
             <p>Rating: ${data.rating}/5</p>
@@ -102,11 +102,7 @@ export const feedbackAdminTemplate = (data) => `
 
             <div class="detail-item">
                 <p><strong>Name:</strong> ${data.name}</p>
-                <p><strong>Email:</strong> <a href="mailto:${
-                  data.email
-                }" style="color: #6366f1; text-decoration: none;">${
-  data.email
-}</a></p>
+                <p><strong>Email:</strong> <a href="mailto:${data.email}" style="color: #6366f1; text-decoration: none;">${data.email}</a></p>
                 <p><strong>Subject:</strong> ${data.subject}</p>
                 <p><strong>Message:</strong></p>
                 <p>"${data.message}"</p>
@@ -128,16 +124,15 @@ export const feedbackAdminTemplate = (data) => `
             <p>Nanded, Maharashtra 431605</p>
             <p style="font-size: 12px; color: #9ca3af; margin-top: 10px;">
                 This is an automated message. Please do not reply directly to this email.
-                For any urgent matters, contact us at 
-                <a href="mailto:${process.env.ADMIN_EMAIL}" 
-                   style="color: #6366f1; text-decoration: underline;">
-                    ${process.env.ADMIN_EMAIL}</a>.
+                For any urgent matters, contact us at
+                <a href="mailto:${process.env.ADMIN_EMAIL}" style="color: #6366f1; text-decoration: underline;">${process.env.ADMIN_EMAIL}</a>.
             </p>
         </div>
     </div>
 </body>
 </html>
 `;
+
 export const feedbackUserTemplate = (data) => `
 <!DOCTYPE html>
 <html lang="en">
@@ -214,7 +209,7 @@ export const feedbackUserTemplate = (data) => `
     <div class="email-container">
         <!-- Header -->
         <div class="header">
-            <img src="https://next-step-kappa-murex.vercel.app/assets/darkLogo-removebg-preview-CegAW90k.png" 
+            <img src="https://next-step-kappa-murex.vercel.app/assets/darkLogo-removebg-preview-CegAW90k.png"
                  alt="Company Logo" class="logo">
             <h1>Thank You, ${data.name}!</h1>
             <p>We appreciate your feedback</p>
@@ -249,7 +244,6 @@ export const feedbackUserTemplate = (data) => `
                 <ul style="padding-left: 15px; color: #4b5563;">
                     <li>Your feedback has been recorded and will be reviewed by our team.</li>
                     <li>If follow-up is required, we'll reach out to you via email within 48 hours.</li>
-                   
                 </ul>
             </div>
         </div>
@@ -260,7 +254,6 @@ export const feedbackUserTemplate = (data) => `
             <p>Nanded, Maharashtra 431605</p>
             <p style="font-size: 12px; color: #9ca3af; margin-top: 10px;">
                 This is an automated message. Please do not reply directly to this email.
-               
             </p>
         </div>
     </div>
