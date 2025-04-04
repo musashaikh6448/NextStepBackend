@@ -44,6 +44,7 @@ export const adminContactTemplate = (data) => `
             background: #f4f4f4;
             padding: 15px;
             border-radius: 8px;
+            margin-top: 15px;
         }
     </style>
 </head>

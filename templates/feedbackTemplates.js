@@ -220,4 +220,3 @@ export const feedbackUserTemplate = (data) => `
 </body>
 </html>
 `;
-
