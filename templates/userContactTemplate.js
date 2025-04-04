@@ -4,27 +4,29 @@ export const userContactTemplate = (data) => `
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You for Contacting NextStep!</title>
+    <title>Thank You for Contacting Us</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
         }
         .email-container {
             max-width: 600px;
             margin: 0 auto;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         .header, .footer {
             text-align: center;
             padding: 20px;
         }
         .header {
-            background-color: #6366f1;
+            background-color: #2c3e50;
             color: white;
         }
         .content {
@@ -32,28 +34,30 @@ export const userContactTemplate = (data) => `
         }
         .detail-item {
             margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        .detail-item:last-child {
+            border-bottom: none;
         }
         .detail-label {
             font-weight: bold;
             margin-bottom: 5px;
-        }
-        .detail-value {
-            color: #333;
+            color: #2c3e50;
         }
         .message-box {
-            background: #f4f4f4;
+            background: #f9f9f9;
             padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
         }
         .cta-button {
-            display: inline-block;
-            width: 100%;
-            padding: 14px;
-            background: #6366f1;
-            color: white !important;
+            display: block;
+            padding: 12px;
+            background: #2c3e50;
+            color: white;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 500;
             margin-bottom: 15px;
@@ -63,40 +67,30 @@ export const userContactTemplate = (data) => `
 <body>
     <div class="email-container">
         <div class="header">
-            <h1>We've Received Your Inquiry!</h1>
-            <p>Our team is already working on your request</p>
+            <h1>Thank You for Contacting Us</h1>
         </div>
         <div class="content">
             <h2>Hello ${data.name},</h2>
+            
             <div class="message-box">
-                <p>
-                    Thank you for reaching out to NextStep! We're excited to assist with
-                    your <strong>${data.inquiryType}</strong> inquiry. Here's what you
-                    can expect:
-                </p>
-                <ul style="list-style: none; padding-left: 15px; color: #333;">
-                    <li>🔹 <strong>Response Time:</strong> We'll get back to you within 24 hours</li>
-                    <li>🔹 <strong>Case ID:</strong> ${Date.now().toString(36).toUpperCase()}</li>
-                    <li>🔹 <strong>Support Channel:</strong> You'll receive updates via email</li>
+                <p>We've received your <strong>${data.inquiryType}</strong> inquiry and will respond within 24 hours.</p>
+                <ul style="padding-left: 20px;">
+                    <li><strong>Case ID:</strong> ${Date.now().toString(36).toUpperCase()}</li>
+                    <li><strong>Subject:</strong> ${data.subject}</li>
                 </ul>
             </div>
+            
             <div class="detail-item">
-                <div class="detail-label">Subject</div>
-                <div class="detail-value">${data.subject}</div>
+                <div class="detail-label">Your Message</div>
+                <div>${data.message}</div>
             </div>
-            <div class="detail-item">
-                <div class="detail-label">Message</div>
-                <div class="detail-value">${data.message}</div>
-            </div>
-            <a href="mailto:${process.env.ADMIN_EMAIL}" class="cta-button">Send Follow-up</a>
-            <a href="https://next-step-kappa-murex.vercel.app/support" class="cta-button" style="background: #10b981;">Check Support Portal</a>
+            
+            <a href="mailto:${process.env.ADMIN_EMAIL}" class="cta-button">Contact Support</a>
+            <a href="https://next-step-kappa-murex.vercel.app/support" class="cta-button">Visit Support Portal</a>
         </div>
         <div class="footer">
-            <p>&copy; 2024 NextStep - Your Future Starts Here</p>
+            <p>&copy; ${new Date().getFullYear()} NextStep</p>
             <p>Nanded, Maharashtra 431605</p>
-            <p style="font-size: 12px; color: #9ca3af; margin-top: 10px;">
-                This is an automated message. Please do not reply directly to this email.
-            </p>
         </div>
     </div>
 </body>
