@@ -8,81 +8,62 @@ export const feedbackAdminTemplate = (data) => `
     <title>New Feedback Received</title>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
-            background-color: #f3f4f6;
+            background-color: #f9f9f9;
         }
         .email-container {
-            max-width: 680px;
+            max-width: 600px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header, .footer {
+            text-align: center;
+            padding: 20px;
         }
         .header {
-            background: linear-gradient(90deg, #6366f1, #7c3aed);
+            background-color: #6366f1;
             color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        .logo {
-            width: 150px;
-            margin-bottom: 15px;
         }
         .content {
-            padding: 30px;
+            padding: 20px;
         }
         .rating-box {
-            background: #f9fafb;
-            padding: 20px;
+            background: #f4f4f4;
+            padding: 15px;
             border-radius: 8px;
-            margin: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            margin-bottom: 15px;
         }
         .rating-stars {
             display: flex;
             gap: 5px;
+            justify-content: center;
         }
         .star {
             color: ${data.rating >= 3 ? "#FFD700" : "#FF4500"};
-            font-size: 24px;
+            font-size: 20px;
         }
         .detail-item {
-            background: #f9fafb;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
+            margin-bottom: 15px;
         }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background: #f3f4f6;
-            color: #64748b;
-            font-size: 0.9em;
+        .detail-label {
+            font-weight: bold;
+            margin-bottom: 5px;
         }
-        @media (max-width: 600px) {
-            .header {
-                padding: 20px;
-            }
+        .detail-value {
+            color: #333;
         }
     </style>
 </head>
 <body>
     <div class="email-container">
-        <!-- Header -->
         <div class="header">
-            <img src="https://next-step-kappa-murex.vercel.app/assets/darkLogo-removebg-preview-CegAW90k.png"
-                 alt="Company Logo" class="logo">
             <h1>New Feedback Received</h1>
             <p>Rating: ${data.rating}/5</p>
         </div>
-
-        <!-- Content -->
         <div class="content">
             <div class="rating-box">
                 <div class="rating-stars">
@@ -99,26 +80,31 @@ export const feedbackAdminTemplate = (data) => `
                     <strong>${data.rating}/5</strong>
                 </div>
             </div>
-
             <div class="detail-item">
-                <p><strong>Name:</strong> ${data.name}</p>
-                <p><strong>Email:</strong> <a href="mailto:${data.email}" style="color: #6366f1; text-decoration: none;">${data.email}</a></p>
-                <p><strong>Subject:</strong> ${data.subject}</p>
-                <p><strong>Message:</strong></p>
-                <p>"${data.message}"</p>
+                <div class="detail-label">Name</div>
+                <div class="detail-value">${data.name}</div>
             </div>
-
             <div class="detail-item">
-                <p><strong>Additional Notes:</strong></p>
-                <ul style="padding-left: 15px; color: #4b5563;">
+                <div class="detail-label">Email</div>
+                <div class="detail-value">${data.email}</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Subject</div>
+                <div class="detail-value">${data.subject}</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Message</div>
+                <div class="detail-value">${data.message}</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Additional Notes</div>
+                <ul style="padding-left: 15px; color: #333;">
                     <li>User provided valuable insights that can help improve our services.</li>
                     <li>This feedback has been categorized as a priority based on its rating.</li>
                     <li>Consider reaching out to the user for further clarification if needed.</li>
                 </ul>
             </div>
         </div>
-
-        <!-- Footer -->
         <div class="footer">
             <p>&copy; 2024 NextStep - Your Future Starts Here</p>
             <p>Nanded, Maharashtra 431605</p>
@@ -142,38 +128,34 @@ export const feedbackUserTemplate = (data) => `
     <title>Thank You for Your Feedback!</title>
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
-            background-color: #f3f4f6;
+            background-color: #f9f9f9;
         }
         .email-container {
-            max-width: 680px;
+            max-width: 600px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header, .footer {
+            text-align: center;
+            padding: 20px;
         }
         .header {
-            background: linear-gradient(90deg, #6366f1, #7c3aed);
+            background-color: #6366f1;
             color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        .logo {
-            width: 150px;
-            margin-bottom: 15px;
         }
         .content {
-            padding: 30px;
+            padding: 20px;
         }
         .rating-box {
-            background: #f9fafb;
-            padding: 20px;
+            background: #f4f4f4;
+            padding: 15px;
             border-radius: 8px;
-            margin: 20px 0;
+            margin-bottom: 15px;
             text-align: center;
         }
         .rating-stars {
@@ -183,39 +165,22 @@ export const feedbackUserTemplate = (data) => `
         }
         .star {
             color: ${data.rating >= 3 ? "#FFD700" : "#FF4500"};
-            font-size: 24px;
+            font-size: 20px;
         }
         .message-box {
-            background: #f9fafb;
-            padding: 20px;
+            background: #f4f4f4;
+            padding: 15px;
             border-radius: 8px;
-            margin: 20px 0;
-        }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background: #f3f4f6;
-            color: #64748b;
-            font-size: 0.9em;
-        }
-        @media (max-width: 600px) {
-            .header {
-                padding: 20px;
-            }
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
     <div class="email-container">
-        <!-- Header -->
         <div class="header">
-            <img src="https://next-step-kappa-murex.vercel.app/assets/darkLogo-removebg-preview-CegAW90k.png"
-                 alt="Company Logo" class="logo">
             <h1>Thank You, ${data.name}!</h1>
             <p>We appreciate your feedback</p>
         </div>
-
-        <!-- Content -->
         <div class="content">
             <div class="rating-box">
                 <p>Your rating:</p>
@@ -231,24 +196,19 @@ export const feedbackUserTemplate = (data) => `
                 </div>
                 <p><strong>${data.rating}/5</strong></p>
             </div>
-
             <div class="message-box">
                 <p><strong>Your message:</strong></p>
                 <p>"${data.message}"</p>
             </div>
-
             <p>We'll use your feedback to improve our services and reach out if needed.</p>
-
             <div class="detail-item">
-                <p><strong>What's Next?</strong></p>
-                <ul style="padding-left: 15px; color: #4b5563;">
+                <div class="detail-label">What's Next?</div>
+                <ul style="padding-left: 15px; color: #333;">
                     <li>Your feedback has been recorded and will be reviewed by our team.</li>
                     <li>If follow-up is required, we'll reach out to you via email within 48 hours.</li>
                 </ul>
             </div>
         </div>
-
-        <!-- Footer -->
         <div class="footer">
             <p>&copy; 2024 NextStep - Your Future Starts Here</p>
             <p>Nanded, Maharashtra 431605</p>

@@ -1,236 +1,104 @@
 export const userContactTemplate = (data) => `
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You for Contacting NextStep!</title>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
-      body {
-        margin: 0;
-        padding: 20px;
-        font-family: 'Inter', sans-serif;
-        line-height: 1.6;
-        background-color: #f5f5f5;
-      }
-
-      .email-wrapper {
-        max-width: 720px;
-        margin: 0 auto;
-        background: white;
-        border-radius: 16px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-        overflow: hidden;
-        border: 1px solid #e5e7eb;
-      }
-
-      .header-section {
-        background: linear-gradient(90deg, #6366f1, #7c3aed);
-        padding: 40px 30px;
-        text-align: center;
-        position: relative;
-      }
-
-      .header-section img.logo {
-        width: 180px;
-        margin-bottom: 12px;
-      }
-
-      .header-section h1 {
-        color: white;
-        font-size: 28px;
-        margin: 0;
-        font-weight: 600;
-      }
-
-      .header-section p {
-        color: rgba(255, 255, 255, 0.8);
-        margin: 8px 0 0;
-        font-size: 16px;
-      }
-
-      .content-section {
-        padding: 30px;
-        background: #ffffff;
-      }
-
-      .content-section h2 {
-        color: #1f2937;
-        font-size: 24px;
-        margin-bottom: 20px;
-      }
-
-      .detail-box {
-        background: #f9fafb;
-        border-radius: 10px;
-        padding: 20px;
-        margin: 20px 0;
-        border: 1px solid #e5e7eb;
-      }
-
-      .detail-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 12px;
-      }
-
-      .detail-row:last-child {
-        margin-bottom: 0;
-      }
-
-      .detail-label {
-        font-weight: 500;
-        color: #374151;
-        width: 35%;
-      }
-
-      .detail-value {
-        font-weight: 400;
-        color: #4b5563;
-        width: 65%;
-        word-break: break-word;
-      }
-
-      .message-box {
-        background: #f9fafb;
-        border-radius: 10px;
-        padding: 20px;
-        margin: 20px 0;
-        border: 1px solid #e5e7eb;
-        white-space: pre-line;
-      }
-
-      .cta-button {
-        display: inline-block;
-        width: 100%;
-        padding: 14px;
-        background: linear-gradient(90deg, #6366f1, #7c3aed);
-        color: white !important;
-        text-align: center;
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: transform 0.2s ease;
-      }
-
-      .footer-section {
-        padding: 20px;
-        background: #f3f4f6;
-        text-align: center;
-        border-top: 1px solid #e5e7eb;
-      }
-
-      .footer-section p {
-        margin: 8px 0;
-        color: #64748b;
-        font-size: 14px;
-      }
-
-      /* Responsive Styles */
-      @media (max-width: 600px) {
-        .header-section {
-          padding: 30px 20px;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
         }
-
-        .header-section h1 {
-          font-size: 24px;
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-
-        .detail-row {
-          flex-direction: column;
-          gap: 8px;
+        .header, .footer {
+            text-align: center;
+            padding: 20px;
         }
-
+        .header {
+            background-color: #6366f1;
+            color: white;
+        }
+        .content {
+            padding: 20px;
+        }
+        .detail-item {
+            margin-bottom: 15px;
+        }
         .detail-label {
-          width: 100%;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
-
         .detail-value {
-          width: 100%;
+            color: #333;
         }
-      }
+        .message-box {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .cta-button {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            background: #6366f1;
+            color: white !important;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
     </style>
-  </head>
-  <body>
-    <div class="email-wrapper">
-      <!-- Header Section -->
-      <div class="header-section">
-        <img
-          src="https://next-step-kappa-murex.vercel.app/assets/darkLogo-removebg-preview-CegAW90k.png"
-          alt="NextStep Logo"
-          class="logo"
-        />
-        <h1>We've Received Your Inquiry!</h1>
-        <p>Our team is already working on your request</p>
-      </div>
-
-      <!-- Content Section -->
-      <div class="content-section">
-        <h2>Hello ${data.name},</h2>
-
-        <div class="message-box">
-          <p style="color: #4b5563">
-            Thank you for reaching out to NextStep! We're excited to assist with
-            your <strong>${data.inquiryType}</strong> inquiry. Here's what you
-            can expect:
-          </p>
-
-          <ul style="list-style: none; padding-left: 15px; color: #374151">
-            <li>
-              🔹 <strong>Response Time:</strong> We'll get back to you within 24
-              hours
-            </li>
-            <li>
-              🔹
-              <strong>Case ID:</strong> ${Date.now().toString(36).toUpperCase()}
-            </li>
-            <li>
-              🔹 <strong>Support Channel:</strong> You'll receive updates via
-              email
-            </li>
-          </ul>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>We've Received Your Inquiry!</h1>
+            <p>Our team is already working on your request</p>
         </div>
-
-        <!-- Detail Boxes -->
-        <div class="detail-box">
-          <div class="detail-row">
-            <span class="detail-label">Subject</span>
-            <span class="detail-value">${data.subject}</span>
-          </div>
-          <div class="detail-row">
-            <span class="detail-label">Message</span>
-            <span class="detail-value">${data.message}</span>
-          </div>
+        <div class="content">
+            <h2>Hello ${data.name},</h2>
+            <div class="message-box">
+                <p>
+                    Thank you for reaching out to NextStep! We're excited to assist with
+                    your <strong>${data.inquiryType}</strong> inquiry. Here's what you
+                    can expect:
+                </p>
+                <ul style="list-style: none; padding-left: 15px; color: #333;">
+                    <li>🔹 <strong>Response Time:</strong> We'll get back to you within 24 hours</li>
+                    <li>🔹 <strong>Case ID:</strong> ${Date.now().toString(36).toUpperCase()}</li>
+                    <li>🔹 <strong>Support Channel:</strong> You'll receive updates via email</li>
+                </ul>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Subject</div>
+                <div class="detail-value">${data.subject}</div>
+            </div>
+            <div class="detail-item">
+                <div class="detail-label">Message</div>
+                <div class="detail-value">${data.message}</div>
+            </div>
+            <a href="mailto:${process.env.ADMIN_EMAIL}" class="cta-button">Send Follow-up</a>
+            <a href="https://next-step-kappa-murex.vercel.app/support" class="cta-button" style="background: #10b981;">Check Support Portal</a>
         </div>
-
-        <!-- CTA Buttons -->
-        <div style="display: flex; gap: 15px; flex-wrap: wrap">
-          <a href="mailto:${process.env.ADMIN_EMAIL}" class="cta-button">
-            Send Follow-up →
-          </a>
-          <a
-            href="https://next-step-kappa-murex.vercel.app/support"
-            class="cta-button"
-            style="background: #10b981; border: none"
-          >
-            Check Support Portal →
-          </a>
+        <div class="footer">
+            <p>&copy; 2024 NextStep - Your Future Starts Here</p>
+            <p>Nanded, Maharashtra 431605</p>
+            <p style="font-size: 12px; color: #9ca3af; margin-top: 10px;">
+                This is an automated message. Please do not reply directly to this email.
+            </p>
         </div>
-      </div>
-
-      <!-- Footer Section -->
-      <div class="footer-section">
-        <p>&copy; 2024 NextStep - Your Future Starts Here</p>
-        <p>Nanded, Maharashtra 431605</p>
-
-        <p style="font-size: 12px; color: #9ca3af; margin-top: 10px">
-          This is an automated message. Please do not reply directly to this
-          email.
-        </p>
-      </div>
     </div>
-  </body>
+</body>
 </html>
 `;
