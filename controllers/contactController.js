@@ -7,6 +7,7 @@ export const submitContactForm = async (req, res) => {
   try {
     const { name, email, subject, message, inquiryType } = req.body;
 
+    // Save to database
     const newContact = new Contact({ 
       name, 
       email, 
@@ -16,16 +17,18 @@ export const submitContactForm = async (req, res) => {
     });
     await newContact.save();
 
+    // Send immediate response
     res.status(201).json({ success: true });
 
+    // Handle email sending asynchronously after response
     sendContactEmails({
       adminTemplate: adminContactTemplate,
       userTemplate: userContactTemplate,
       data: { name, email, subject, message, inquiryType },
       adminSubject: `New Inquiry: ${subject}`,
       userSubject: 'Thank You for Your Inquiry',
-    }).catch((err) => {
-      console.error('Error sending contact emails:', err);
+    }).catch(error => {
+      console.error('Error sending contact emails:', error);
     });
 
   } catch (error) {

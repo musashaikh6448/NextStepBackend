@@ -6,6 +6,7 @@ export const submitFeedbackForm = async (req, res) => {
   try {
     const { name, email, subject, message, rating } = req.body;
 
+    // Save to database
     const newFeedback = new Feedback({ 
       name, 
       email, 
@@ -15,16 +16,19 @@ export const submitFeedbackForm = async (req, res) => {
     });
     await newFeedback.save();
 
+    // Send immediate response
     res.status(201).json({ success: true });
 
+    // Handle email sending asynchronously after response
     sendContactEmails({
       adminTemplate: feedbackAdminTemplate,
       userTemplate: feedbackUserTemplate,
       data: { name, email, subject, message, rating },
       adminSubject: `New Feedback: ${subject} [Rating: ${rating}/5]`,
       userSubject: 'Thank You for Your Feedback!',
-    }).catch((err) => {
-      console.error('Error sending feedback emails:', err);
+    }).catch(error => {
+      console.error('Error sending feedback emails:', error);
+      // Consider adding error logging/handling here
     });
 
   } catch (error) {
