@@ -7,7 +7,6 @@ export const submitContactForm = async (req, res) => {
   try {
     const { name, email, subject, message, inquiryType } = req.body;
 
-    // Save to database
     const newContact = new Contact({ 
       name, 
       email, 
@@ -17,16 +16,18 @@ export const submitContactForm = async (req, res) => {
     });
     await newContact.save();
 
-    // Send emails using the generic handler
-    await sendContactEmails({
+    res.status(201).json({ success: true });
+
+    sendContactEmails({
       adminTemplate: adminContactTemplate,
       userTemplate: userContactTemplate,
       data: { name, email, subject, message, inquiryType },
       adminSubject: `New Inquiry: ${subject}`,
       userSubject: 'Thank You for Your Inquiry',
+    }).catch((err) => {
+      console.error('Error sending contact emails:', err);
     });
 
-    res.status(201).json({ success: true });
   } catch (error) {
     res.status(500).json({ 
       success: false, 

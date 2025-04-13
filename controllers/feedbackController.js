@@ -6,7 +6,6 @@ export const submitFeedbackForm = async (req, res) => {
   try {
     const { name, email, subject, message, rating } = req.body;
 
-    // Save to database
     const newFeedback = new Feedback({ 
       name, 
       email, 
@@ -16,16 +15,18 @@ export const submitFeedbackForm = async (req, res) => {
     });
     await newFeedback.save();
 
-    // Send emails using the generic handler
-    await sendContactEmails({
+    res.status(201).json({ success: true });
+
+    sendContactEmails({
       adminTemplate: feedbackAdminTemplate,
       userTemplate: feedbackUserTemplate,
       data: { name, email, subject, message, rating },
       adminSubject: `New Feedback: ${subject} [Rating: ${rating}/5]`,
       userSubject: 'Thank You for Your Feedback!',
+    }).catch((err) => {
+      console.error('Error sending feedback emails:', err);
     });
 
-    res.status(201).json({ success: true });
   } catch (error) {
     res.status(500).json({ 
       success: false, 
