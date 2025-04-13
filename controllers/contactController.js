@@ -17,20 +17,16 @@ export const submitContactForm = async (req, res) => {
     });
     await newContact.save();
 
-    // Send immediate response
-    res.status(201).json({ success: true });
-
-    // Handle email sending asynchronously after response
-    sendContactEmails({
+    // Send emails using the generic handler
+    await sendContactEmails({
       adminTemplate: adminContactTemplate,
       userTemplate: userContactTemplate,
       data: { name, email, subject, message, inquiryType },
       adminSubject: `New Inquiry: ${subject}`,
       userSubject: 'Thank You for Your Inquiry',
-    }).catch(error => {
-      console.error('Error sending contact emails:', error);
     });
 
+    res.status(201).json({ success: true });
   } catch (error) {
     res.status(500).json({ 
       success: false, 
